@@ -14,6 +14,19 @@
 
           <div class="info">
             <p class="title">{{ movie.title.slice(0,25) }} <span v-if="movie.title.length > 25">...</span></p>
+            <p class="release">
+              Released:
+              {{
+                new Date(movie.release_date).toLocaleString('pt-br',{
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric',
+                })
+              }}
+            </p>
+            <NuxtLink class="button button-light" :to="{name: 'movies-movieid', params: {movieid : movie.id}}">
+              Get More Info
+            </NuxtLink>
           </div>
         </div>
       </div>
