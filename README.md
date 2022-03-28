@@ -1,4 +1,6 @@
 # movieapp-nuxt-2022
+```api doc
+# https://developers.themoviedb.org/3/movies/get-movie-details
 
 ## Build Setup
 
