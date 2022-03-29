@@ -15,7 +15,10 @@
       </button>
     </div>
 
-    <div class="container movies">
+    <!-- loading -->
+    <Loading v-if="$fetchState.pending" />
+
+    <div v-else class="container movies">
       <div v-if="searchInput !== ''" id="movie-grid" class="movies-grid">
         <div class="movie" v-for="(movie, index) in searchedMovies" :key="index">
 
@@ -56,6 +59,9 @@
 
           <div class="info">
             <p class="title">{{ movie.title.slice(0,25) }} <span v-if="movie.title.length > 25">...</span></p>
+            <NuxtLink class="button button-light" :to="{name: 'movies-movieid', params: {movieid : movie.id}}">
+              Get More Info
+            </NuxtLink>
           </div>
 
         </div>
@@ -86,6 +92,7 @@ export default {
       await this.searchMovies()
     }
   },
+  fetchDelay: 1000,
   methods: {
     async getMovies() {
       const data = axios.get(
@@ -96,6 +103,7 @@ export default {
       result.data.results.forEach((movie) => {
         this.movies.push(movie)
       })
+      console.log('hello')
       // console.log('array movies',this.movies)
     },
     async searchMovies() {
