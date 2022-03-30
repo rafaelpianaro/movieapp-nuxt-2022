@@ -9,7 +9,7 @@
         <div class="movie-content">
             <h1>Title: {{ movie.title }}</h1>
             <p class="movie-fact tagline">
-                <span>TagLine:</span>{{ movie.tagline }}
+                <span>TagLine:</span> {{ movie.tagline }}
             </p>
             <p class="movie-fact">
                 <span>Released:</span>
@@ -27,9 +27,9 @@
             <p class="movie-fact">
                 <span>Revenue:</span>
                 {{
-                    movie.revenue.toLocaleString('pt-br', {
+                    movie.revenue.toLocaleString('en-us', {
                     style: 'currency',
-                    currency: 'BRL',
+                    currency: 'USD',
                     })
                 }}
             </p>
