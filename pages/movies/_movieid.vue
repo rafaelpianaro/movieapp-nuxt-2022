@@ -43,9 +43,14 @@
 import axios from "axios"
 export default {
     name: 'single-movie',
+    head() {
+      return {
+        title: 'Streaming - ' + this.movie.title,
+      }
+    },
     data() {
         return {
-            movie: null,
+            movie: '',
         }
     },
     async fetch() {
