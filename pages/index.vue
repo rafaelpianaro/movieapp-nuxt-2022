@@ -120,7 +120,7 @@ export default {
       result.data.results.forEach((movie) => {
         this.movies.push(movie)
       })
-      console.log('hello')
+      // console.log('hello')
       // console.log('array movies',this.movies)
     },
     async searchMovies() {
